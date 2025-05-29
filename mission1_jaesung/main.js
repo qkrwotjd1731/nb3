@@ -1,5 +1,4 @@
-import { getProductList, getProduct, createProduct, patchProduct, deleteProduct } from "./ProductService.js";
-import { getArticleList, getArticle, createArticle, patchArticle, deleteArticle } from "./ArticleService.js";
+import { getProductList, createProduct } from "./ProductService.js";
 
 class Product {
   constructor(name, description, price, tags, images, favoriteCount = 0) {
@@ -17,11 +16,14 @@ class Product {
   }
   
   set name(value) {
-    // 한글, 영문, 숫자, 공백만 허용
-    if (typeof value === 'string' && /^[가-힣a-zA-Z0-9\s]+$/.test(value)) {
+    const isString = typeof value === 'string'; // 문자열인지 판단
+    const isLengthValid = value.length >= 1 && value.length <= 30; // 1자 이상, 30자 이하
+    const noSpecialChars = /^[가-힣a-zA-Z0-9\s]+$/.test(value) // 한글, 영문, 숫자, 공백만 허용
+
+    if (isString && isLengthValid && noSpecialChars) {
       this._name = value;
     } else {
-      console.log('invaild value.');
+      console.log('상품명은 1~30자의 특수문자를 제외한 문자열이어야 합니다.');
     }
   }
 
@@ -33,7 +35,7 @@ class Product {
     if (typeof value === 'string') {
       this._description = value;
     } else {
-      console.log('invaild value.');
+      console.log('상품 설명은 문자열이어야 합니다.');
     }
   }
 
@@ -42,10 +44,13 @@ class Product {
   }
 
   set price(value) {
-    if (typeof value === 'number' && value >= 0) {
+    const isNumber = typeof value === 'number'; // 숫자인지 판단
+    const isNumberValid = value >=0 && value <= 9999999; //0원 이상, 9999999원 이하
+
+    if (isNumber && isNumberValid) {
       this._price = value;
     } else {
-      console.log('invaild value.');
+      console.log('판매 가격은 0 이상 9999999 이하의 숫자여야 합니다.');
     }
   }
 
