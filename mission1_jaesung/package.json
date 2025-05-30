@@ -1,5 +1,5 @@
 {
-  "name": "sprint_missoin1",
+  "name": "missoin1_jaesung",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
   },
   "author": "Park Jaesung",
   "license": "ISC",
-  "description": "codeit node.js backend gen3 mission1",
+  "description": "codeit nb3 mission1 Park Jaesung's code",
   "dependencies": {
     "axios": "^1.9.0"
   }

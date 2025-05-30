@@ -41,7 +41,7 @@ export async function createProduct(productData) {
   }
 }
 
-export async function patchProduct(productData) {
+export async function patchProduct(id, productData) {
   try {
     const res = await instance.patch(`/products/${id}`,productData);
     return res. data;
