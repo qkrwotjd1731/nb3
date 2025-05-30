@@ -95,10 +95,13 @@ class Product {
   }
 
   set favoriteCount(value) {
-    if (typeof value === 'number' && value >= 0) {
+    const isNumber = typeof value === 'number'; // 숫자인지 판단
+    const isValid = value >=0 && value <= 999; //0개 이상, 999개 이하
+
+    if (isNumber && isValid) {
       this._favoriteCount = value;
     } else {
-      console.log('invaild value.');
+      console.log('찜하기 수는 0 이상 999 이하의 숫자여야 합니다.');
     }
   }
 
@@ -123,7 +126,7 @@ class ElectronicProduct extends Product {
     if (typeof value === 'string') {
       this._manufacturer = value;
     } else {
-      console.log('invaild value.');
+      console.log('제조사 이름은 문자열이어야 합니다.');
     }
   }
 }
@@ -146,7 +149,7 @@ class Article {
     if (typeof value === 'string') {
       this._title = value;
     } else {
-      console.log('invaild value.');
+      console.log('제목은 문자열이어야 합니다.');
     }
   }
 
@@ -158,7 +161,7 @@ class Article {
     if (typeof value === 'string') {
       this._content = value;
     } else {
-      console.log('invaild value.');
+      console.log('내용은 문자열이어야 합니다.');
     }
   }
 
@@ -170,7 +173,7 @@ class Article {
     if (typeof value === 'string') {
       this._writer = value;
     } else {
-      console.log('invaild value.');
+      console.log('작성자는 문자열이어야 합니다.');
     }
   }
 
@@ -179,10 +182,13 @@ class Article {
   }
 
   set likeCount(value) {
-    if (typeof value === 'number' && value >= 0) {
+    const isNumber = typeof value === 'number'; // 숫자인지 판단
+    const isValid = value >=0 && value <= 999; //0개 이상, 999개 이하
+
+    if (isNumber && isValid) {
       this._likeCount = value;
     } else {
-      console.log('invaild value.');
+      console.log('좋아요 수는 0 이상 999 이하의 숫자여야 합니다.');
     }
   }
 
@@ -197,7 +203,7 @@ class Article {
   "name": "헤드셋",
   "description": "스피커,마이크 가능",
   "price": 30000,
-  "tags": ["#전자제품"],
+  "tags": ["전자제품"],
   "images": ["https://example.com/..."],
 });
 const productData = await getProductList();
