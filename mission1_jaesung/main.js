@@ -96,7 +96,7 @@ class Product {
 
   set favoriteCount(value) {
     const isNumber = typeof value === 'number'; // 숫자인지 판단
-    const isValid = value >=0 && value <= 999; //0개 이상, 999개 이하
+    const isValid = value >=0 && value <= 999; // 0개 이상, 999개 이하
 
     if (isNumber && isValid) {
       this._favoriteCount = value;
@@ -183,7 +183,7 @@ class Article {
 
   set likeCount(value) {
     const isNumber = typeof value === 'number'; // 숫자인지 판단
-    const isValid = value >=0 && value <= 999; //0개 이상, 999개 이하
+    const isValid = value >=0 && value <= 999; // 0개 이상, 999개 이하
 
     if (isNumber && isValid) {
       this._likeCount = value;

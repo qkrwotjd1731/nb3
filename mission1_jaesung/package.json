@@ -1,6 +1,10 @@
 {
   "name": "sprint_missoin1",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qkrwotjd1731/nb3"
+  },
   "main": "main.js",
   "type": "module",
   "scripts": {
@@ -8,7 +12,7 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "codeit node.js backend gen3 mission1",
   "dependencies": {
     "axios": "^1.9.0"
   }
