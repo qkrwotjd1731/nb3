@@ -45,9 +45,9 @@ class Product {
 
   set price(value) {
     const isNumber = typeof value === 'number'; // 숫자인지 판단
-    const isNumberValid = value >=0 && value <= 9999999; //0원 이상, 9999999원 이하
+    const isValid = value >=0 && value <= 9999999; //0원 이상, 9999999원 이하
 
-    if (isNumber && isNumberValid) {
+    if (isNumber && isValid) {
       this._price = value;
     } else {
       console.log('판매 가격은 0 이상 9999999 이하의 숫자여야 합니다.');
