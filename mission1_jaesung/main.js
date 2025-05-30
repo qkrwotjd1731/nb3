@@ -63,8 +63,10 @@ class Product {
       let isValid = true;
 
       value.forEach((tag) => {
-        if (typeof tag !== string || tag[0] !== '#') {  // starsWith 고려
+        if (typeof tag !== string) {  // starsWith 고려
           isValid = false;
+        } else if (tag[0] !== '#') {
+          tag = '#' + tag;
         }
       })
     }
