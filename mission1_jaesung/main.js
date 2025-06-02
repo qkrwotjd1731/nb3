@@ -64,18 +64,18 @@ class Product {
       let isValid = true;
 
       value.forEach((tag) => {
-        if (typeof tag !== string) {  // starsWith 고려
+        if (typeof tag !== string) {  // starsWith 고려 가능
           isValid = false;
         } else if (tag[0] !== '#') {
           tag = '#' + tag;
         }
       })
     }
-    // 중복제거 set 고려
+    
     if (isValid) {
       this._tags = value;
     } else {
-      console.log('invaild value.');
+      console.log('각 해시태그는 문자열이어야 합니다.');
     }
   }
 
@@ -84,10 +84,25 @@ class Product {
   }
 
   set images(value) {
-    if (Array.isArray(value)) {
+    if (!Array.isArray(value)) {
+      console.log('배열이어야 합니다.');
+      return;
+    }
+
+    let allValid = true;
+
+    value.forEach((item) => {
+      try {
+       new URL(item); // 유효하지 않은 URL이면 에러 발생
+      } catch {
+        allValid = false;
+      }
+    });
+
+    if (allValid) {
       this._images = value;
     } else {
-      console.log('invaild value.');
+      console.log('배열 안의 모든 항목은 유효한 URL이어야 합니다.');
     }
   }
 
@@ -248,8 +263,8 @@ productData.list.forEach((product) => {
     ));
   }
 });
-
-console.log('Products 배열: ', products);
+console.log('Product Body: ', productData);
+// console.log('Products 배열: ', products);
 console.log('-------');
 
 // ---Article Test Code---
