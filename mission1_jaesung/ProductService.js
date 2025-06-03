@@ -4,9 +4,9 @@ const instance = axios.create({
 	baseURL: 'https://panda-market-api-crud.vercel.app',
 });
 
-export async function getProductList(page=1, pageSize=5, keyword='') {
+export async function getProductList(page=1, pageSize=10, keyword='') {
   try {
-    const res = await instance.get('/products',{ page, pageSize, keyword });
+    const res = await instance.get('/products',{ params: { page, pageSize, keyword } });
     return res. data;
   } catch (err) {
     console.log(`Error T.T: ${err.response.status} ${err.response.statusText}`);
