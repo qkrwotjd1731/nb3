@@ -91,10 +91,8 @@ class Product {
 
     let allValid = true;
 
-    value.forEach((item) => {
-      try {
-       new URL(item); // 유효하지 않은 URL이면 에러 발생
-      } catch {
+    value.forEach((url) => {
+      if(!(typeof url === 'string' && url.startsWith('http'))) {
         allValid = false;
       }
     });
